@@ -1,23 +1,7 @@
-.container {
-  background-color: grey;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
+.nav {
   display: flex;
 }
 
-.sidebar {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
+.footer {
   display: flex;
-  flex-direction: column;
-  width: 250px;
-  height: 95vh;
-  margin-top: 2vh;
-}
-
-.projectForm{
-  width: 600px
 }
