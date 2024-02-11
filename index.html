@@ -13,42 +13,74 @@
     <title>HitGub</title>
   </head>
   <body>
-  
+    <div class="nav">
+      <ul class="navbar">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-repositories" href="repositories.html">Repositories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-projects" href="projects.html">Projects</a></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-packages" href="packages.html">Packages</a>
+        </li>
+      </ul>
+    </div>
     <form class="projectForm">
       <h2>Create a new project</h2>
-      <h5>Coordinate, track, and update your work in one place, so projects stay transparent and on schedule.</h5>
-      
+      <h5>
+        Coordinate, track, and update your work in one place, so projects stay
+        transparent and on schedule.
+      </h5>
+
       <div class="search">
-        <input type="text" class="searchBar" id="filter">
+        <input type="text" class="searchBar" id="filter" />
         <label for="floatingInput">search</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="title" required>
+        <input type="text" class="form-control" id="title" required />
         <label for="floatingInput">Project board name</label>
       </div>
-      
+
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="description">
+        <input type="text" class="form-control" id="description" />
         <label for="floatingInput">Descrption(optional)</label>
       </div>
-      
-      
-      <button type="submit" class="btn btn-success" id="form-submit">Create Project</button>
-      </form>
-  
-      <footer>
-         Terms Privacy
-      </footer>
-      <div id="projects"></div>
-   
+
+      <button type="submit" class="btn btn-success" id="form-submit">
+        Create Project
+      </button>
+    </form>
+
+    <footer>Terms Privacy</footer>
+    <div id="projects"></div>
 
     <div class="container">
       <div label="bio-sidebar" class="el sidebar" id="sidebar"></div>
       <div label="navbar"></div>
       <div label="pinned-repos"></div>
       <div label="pinned-form"></div>
-      <div label="footer"></div>
+      <div class="footer">
+        <ul>
+          <li><a href="#">© 2024 HitGub, Inc.</a></li>
+          <li><a href="#">Terms</li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Security</href></a></li>
+          <li><a href="#">Status</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#">Contact HitGub</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Training</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
     </div>
 
     <script

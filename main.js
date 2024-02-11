@@ -1,5 +1,5 @@
 const renderToDom = (divId, html) => {
-  const selectedDiv = docuement.querySelector(divId);
+  const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = html;
 };
 
@@ -19,29 +19,29 @@ const renderToDom = (divId, html) => {
 //renderToDom("#sidebar", sidebarDomString);
 //};
 
-
-
 ///Cards on DOM for projects///
 const projects = [
   {
     id: 1,
     title: "Example",
-    description: "Example text"
+    description: "Example text",
   },
   {
     id: 2,
     title: "Class Presentation",
-    description: "Creating a wireframe and slideshow for next weeks presentation",
+    description:
+      "Creating a wireframe and slideshow for next weeks presentation",
   },
   {
     id: 3,
     title: "Mobile App Project",
-    description: "Creating a mobile app that helps users with keep track of their diet",
+    description:
+      "Creating a mobile app that helps users with keep track of their diet",
   },
 ];
 
 const cardsOnDom = (projects) => {
-  let projectsDomString = ""
+  let projectsDomString = "";
   for (const project of projects) {
     projectsDomString += `<div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -54,7 +54,7 @@ const cardsOnDom = (projects) => {
   renderToDom("#projects", projectsDomString);
 };
 
-const form = document.querySelector("form")
+const form = document.querySelector("form");
 
 const createProject = (e) => {
   e.preventDefault();
@@ -64,6 +64,7 @@ const createProject = (e) => {
     title: document.querySelector("#projectTitle").value,
     description: document.querySelector("#projectDescription").value,
   }
+
   projects.push(newProject);
   cardsOnDom(projects);
   form.reset();
@@ -71,14 +72,13 @@ const createProject = (e) => {
 
 form.addEventListener("submit", createProject);
 
-
 const project = document.querySelector("#projects");
 
 project.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
-    const[ , id] = e.target.id.split("--");
+    const [, id] = e.target.id.split("--");
 
-    const index = projects.findIndex(e => e.id === Number(id));
+    const index = projects.findIndex((e) => e.id === Number(id));
 
     projects.splice(index, 1);
     cardsOnDom(projects);
@@ -86,7 +86,7 @@ project.addEventListener("click", (e) => {
 });
 
 const startApp = () => {
-  cardsOnDom(projects)
+  cardsOnDom(projects);
 };
 
 
