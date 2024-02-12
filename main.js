@@ -121,7 +121,7 @@ const createProject = (e) => {
   form.reset();
 };
 
-form.addEventListener("submit", createProject);
+form.addEventListener("form-submit", createProject);
 
 const project = document.querySelector("#projects");
 
