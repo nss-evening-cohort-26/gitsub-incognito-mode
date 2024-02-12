@@ -3,6 +3,8 @@ const renderToDom = (divId, html) => {
   selectedDiv.innerHTML = html;
 };
 
+//sidebar
+
 //Pinned Repo Data//
 const pinnedRepos = [
   {
