@@ -3,20 +3,71 @@ const renderToDom = (divId, html) => {
   selectedDiv.innerHTML = html;
 };
 
-// const sidebarRender = () => {
-//  const sidebarDomString = `
-// <div label="bio-pic">Testing, testing...</div>
-// <div label="bio-name"></div>
-// <div label="bio-copy"></div>
-// <div label="buttons"></div>
-// <div label="stats"></div>
-// <div label="contacts"></div>
-// <div label="highlights"></div>
-// <div label="orgs"></div>
-// <div label="sponsors></div>
-// `;
-//renderToDom("#sidebar", sidebarDomString);
-//};
+//Pinned Repo Data//
+const pinnedRepos = [
+  {
+    id: 1,
+    title: "gatsby-workshop",
+    bio: "This workshop covers the fundamentals of developing fast, accessible sites with Gatsby, a React framework, and dive deep into the building blocks you'll need to build your own custom Gatsby sites.",
+    bottomText: ["Javascript", 38, 8],
+  },
+
+  {
+    id: 2,
+    title: "getting-started-with-open-source",
+    bio: "This is a presentation on Getting Started With Open Source",
+    bottomText: ["JavaScript", 6],
+  },
+
+  {
+    id: 3,
+    title: "Rebuild-Black-Business/RBB-Website",
+    bio: "Website to help connect black-owned businesses with consumers and resources",
+    bottomText: ["JavaScript", 99, 75],
+  },
+
+  {
+    id: 4,
+    title: "React-Ladies",
+    bio: "We're a group of women and non-binary ReactJS enthusiasts in New York City (and beyond).",
+    bottomText: ["JavaScript", 99, 26],
+  },
+
+  {
+    id: 5,
+    title: "httriri",
+    bio: "HTTRiRi - HTTP Status Codes as Portrayed by Rihanna GIFS",
+    bottomText: ["TypeScript", 37, 22],
+  },
+
+  {
+    id: 6,
+    title: "affirmation_generator",
+    bio: "A random generator written with ReactJS :-)",
+    bottomText: ["JavaScript", 52, 32],
+  },
+];
+
+//render pinned repos
+const pinnedRepoRender = (pinnedRepos) => {
+  let pinnedString = "";
+  pinnedRepos.forEach((item) => {
+    pinnedString += `
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${item.title}</h5>
+      <p class="card-text">${item.bio}</p>
+      <p class="card-link">${item.bottomText[0]}</p>
+      <p class="card-link">${item.bottomText[1]}</p>
+      <p class="card-link">${item.bottomText[2]}</p>
+    </div>
+  </div>
+    `;
+  });
+  renderToDom("pinned-repos", pinnedString);
+};
+
+//render project form
 
 ////Project Cards////
 const projects = [
@@ -83,46 +134,48 @@ project.addEventListener("click", (e) => {
   }
 });
 
-const startApp = () => {
-  cardsOnDom(projects);
-};
-
 ///Cards on DOM for packages///
 const packages = [
   {
     id: 4,
     packageTitle: "docker",
-    packageDescription: "A software platform used for building applications based on containers small and lightweight execution environments.",
+    packageDescription:
+      "A software platform used for building applications based on containers small and lightweight execution environments.",
   },
   {
     id: 5,
     packageTitle: "Apache Maven",
-    packageDescription: "A default package manager used for the Java programming language and the Java runtime environment.",
+    packageDescription:
+      "A default package manager used for the Java programming language and the Java runtime environment.",
   },
   {
-   id: 6,
-   packageTitle: "NuGet",
-   packageDescription: "A free and open source package manager used for the Microsoft development platforms including .NET.",
+    id: 6,
+    packageTitle: "NuGet",
+    packageDescription:
+      "A free and open source package manager used for the Microsoft development platforms including .NET.",
   },
   {
     id: 7,
     packageTitle: "RubyGems",
-    packageDescription: "A standard format for distributing Ruby programs and libraries used for the Ruby programming language.",
+    packageDescription:
+      "A standard format for distributing Ruby programs and libraries used for the Ruby programming language.",
   },
   {
     id: 8,
     packageTitle: "npm",
-    packageDescription: "A package manager for JavaScript, included with Node.js npm makes it easy foir developers to share and reuse code."
+    packageDescription:
+      "A package manager for JavaScript, included with Node.js npm makes it easy foir developers to share and reuse code.",
   },
   {
     id: 9,
     packageTitle: "Containers",
-    packageDescription: "A single place for your team to manage Docker images and decide who can see and access your images.",
+    packageDescription:
+      "A single place for your team to manage Docker images and decide who can see and access your images.",
   },
 ];
 
 const packagesCardsOnDom = (packages) => {
-  let packagesDomString = ""
+  let packagesDomString = "";
   for (const package of packages) {
     packagesDomString += `<div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -135,7 +188,7 @@ const packagesCardsOnDom = (packages) => {
   renderToDom("#packages", packagesDomString);
 };
 
-const packageForm = document.querySelector("form")
+const packageForm = document.querySelector("form");
 
 const createPackage = (e) => {
   e.preventDefault();
@@ -144,7 +197,7 @@ const createPackage = (e) => {
     id: projects.length + 1,
     title: document.querySelector("#packageTitle").value,
     description: document.querySelector("#packageDescription").value,
-  }
+  };
   projects.push(newPackage);
   packagesCardsOnDom(packages);
   form.reset();
@@ -152,46 +205,48 @@ const createPackage = (e) => {
 
 form.addEventListener("submit", createPackage);
 
-
 const package = document.querySelector("#package");
 package.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
-    const[ , id] = e.target.id.split("--");
+    const [, id] = e.target.id.split("--");
 
-    const index = packages.findIndex(e => e.id === Number(id));
+    const index = packages.findIndex((e) => e.id === Number(id));
 
     packages.splice(index, 1);
     packagesCardsOnDom(packages);
   }
 });
 
-
 ///Cards on DOM for Repos///
 const repos = [
   {
     id: 10,
     reposTitle: "greys-anatomy-lorem-ipsum-generator",
-    reposDescription: "A lorem ipsum generator with medical terms and words from the show Grey's Anatomy.",
+    reposDescription:
+      "A lorem ipsum generator with medical terms and words from the show Grey's Anatomy.",
   },
   {
     id: 11,
     reposTitle: "how-many-days-until",
-    reposDescription: "A React countdown app of days between today and next year.",
+    reposDescription:
+      "A React countdown app of days between today and next year.",
   },
   {
     id: 12,
     reposTitle: "httriri",
-    reposDescription: "HTTRIRI - HTTP Status Codes as Portrayed by Rihanna GIF's",
+    reposDescription:
+      "HTTRIRI - HTTP Status Codes as Portrayed by Rihanna GIF's",
   },
   {
     id: 13,
     reposTitle: "ambition-fund-website",
-    reposDescription: "Website for www.ambitionfund.org, micro-grant program to provide support for underrepresented people who need financial assistance pursuing professional development opportunities in the technology...",
+    reposDescription:
+      "Website for www.ambitionfund.org, micro-grant program to provide support for underrepresented people who need financial assistance pursuing professional development opportunities in the technology...",
   },
 ];
 
 const reposCardsOnDom = (repos) => {
-  let reposDomString = ""
+  let reposDomString = "";
   for (const repo of repos) {
     reposDomString += `<div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -204,7 +259,7 @@ const reposCardsOnDom = (repos) => {
   renderToDom("#repos", reposDomString);
 };
 
-const repoForm = document.querySelector("form")
+const repoForm = document.querySelector("form");
 
 const createRepo = (e) => {
   e.preventDefault();
@@ -213,7 +268,7 @@ const createRepo = (e) => {
     id: repos.length + 1,
     title: document.querySelector("#repoTitle").value,
     description: document.querySelector("#repoDescription").value,
-  }
+  };
   repos.push(newRepo);
   packagesCardsOnDom(repos);
   form.reset();
@@ -221,18 +276,23 @@ const createRepo = (e) => {
 
 form.addEventListener("submit", createRepo);
 
-
 const repo = document.querySelector("#repos");
 
 repo.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
-    const[ , id] = e.target.id.split("--");
+    const [, id] = e.target.id.split("--");
 
-    const index = repos.findIndex(e => e.id === Number(id));
+    const index = repos.findIndex((e) => e.id === Number(id));
 
     repos.splice(index, 1);
     reposCardsOnDom(repos);
   }
 });
+
+const startApp = () => {
+  pinnedRepoRender(pinnedRepos);
+  cardsOnDom(projects);
+  packagesCardsOnDom(packages);
+};
 
 startApp();

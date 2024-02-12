@@ -5,3 +5,9 @@
 .footer {
   display: flex;
 }
+
+.container {
+  display: flex;
+  background-color: black;
+  color: white;
+}
