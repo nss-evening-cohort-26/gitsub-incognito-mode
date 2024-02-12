@@ -9,6 +9,7 @@ body {
 
 .footer {
   display: flex;
+  flex-direction: row;
 }
 
 .container {
