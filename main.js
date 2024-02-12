@@ -89,8 +89,6 @@ const startApp = () => {
   cardsOnDom(projects);
 };
 
-
-
 ///Cards on DOM for packages///
 const packages = [
   {
