@@ -3,6 +3,7 @@ const renderToDom = (divId, html) => {
   selectedDiv.innerHTML = html;
 };
 
+
 // const sidebarRender = () => {
 //  const sidebarDomString = `
 // <div label="bio-pic">Testing, testing...</div>
@@ -18,7 +19,7 @@ const renderToDom = (divId, html) => {
 //renderToDom("#sidebar", sidebarDomString);
 //};
 
-////Project Cards////
+///Cards on DOM for projects///
 const projects = [
   {
     id: 1,
@@ -60,9 +61,10 @@ const createProject = (e) => {
 
   const newProject = {
     id: projects.length + 1,
-    title: document.querySelector("#title").value,
-    description: document.querySelector("#description").value,
-  };
+    title: document.querySelector("#projectTitle").value,
+    description: document.querySelector("#projectDescription").value,
+  }
+
   projects.push(newProject);
   cardsOnDom(projects);
   form.reset();
