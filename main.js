@@ -6,6 +6,9 @@ const renderToDom = (divId, html) => {
 //sidebar
 
 //Pinned Repo Data//
+
+let pinnedDiv = document.querySelector("pinned-repos");
+
 const pinnedRepos = [
   {
     id: 1,
@@ -66,7 +69,7 @@ const pinnedRepoRender = (pinnedRepos) => {
   </div>
     `;
   });
-  renderToDom("pinned-repos", pinnedString);
+  renderToDom(pinnedDiv, pinnedString);
 };
 
 //render project form
@@ -91,6 +94,8 @@ const projects = [
       "Creating a mobile app that helps users with keep track of their diet",
   },
 ];
+
+const project = document.querySelector("#projects");
 
 const cardsOnDom = (projects) => {
   let projectsDomString = "";
@@ -121,9 +126,7 @@ const createProject = (e) => {
   form.reset();
 };
 
-form.addEventListener("form-submit", createProject);
-
-const project = document.querySelector("#projects");
+form.addEventListener("submit", createProject);
 
 project.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
@@ -140,38 +143,38 @@ project.addEventListener("click", (e) => {
 const packages = [
   {
     id: 4,
-    packageTitle: "docker",
-    packageDescription:
+    title: "docker",
+    description:
       "A software platform used for building applications based on containers small and lightweight execution environments.",
   },
   {
     id: 5,
-    packageTitle: "Apache Maven",
-    packageDescription:
+    title: "Apache Maven",
+    description:
       "A default package manager used for the Java programming language and the Java runtime environment.",
   },
   {
     id: 6,
-    packageTitle: "NuGet",
-    packageDescription:
+    title: "NuGet",
+    description:
       "A free and open source package manager used for the Microsoft development platforms including .NET.",
   },
   {
     id: 7,
-    packageTitle: "RubyGems",
-    packageDescription:
+    title: "RubyGems",
+    description:
       "A standard format for distributing Ruby programs and libraries used for the Ruby programming language.",
   },
   {
     id: 8,
-    packageTitle: "npm",
-    packageDescription:
+    title: "npm",
+    description:
       "A package manager for JavaScript, included with Node.js npm makes it easy foir developers to share and reuse code.",
   },
   {
     id: 9,
-    packageTitle: "Containers",
-    packageDescription:
+    title: "Containers",
+    description:
       "A single place for your team to manage Docker images and decide who can see and access your images.",
   },
 ];
@@ -205,7 +208,7 @@ const createPackage = (e) => {
   form.reset();
 };
 
-form.addEventListener("submit", createPackage);
+packageForm.addEventListener("submit", createPackage);
 
 const package = document.querySelector("#package");
 package.addEventListener("click", (e) => {
@@ -223,26 +226,24 @@ package.addEventListener("click", (e) => {
 const repos = [
   {
     id: 10,
-    reposTitle: "greys-anatomy-lorem-ipsum-generator",
-    reposDescription:
+    title: "greys-anatomy-lorem-ipsum-generator",
+    description:
       "A lorem ipsum generator with medical terms and words from the show Grey's Anatomy.",
   },
   {
     id: 11,
-    reposTitle: "how-many-days-until",
-    reposDescription:
-      "A React countdown app of days between today and next year.",
+    title: "how-many-days-until",
+    description: "A React countdown app of days between today and next year.",
   },
   {
     id: 12,
-    reposTitle: "httriri",
-    reposDescription:
-      "HTTRIRI - HTTP Status Codes as Portrayed by Rihanna GIF's",
+    title: "httriri",
+    description: "HTTRIRI - HTTP Status Codes as Portrayed by Rihanna GIF's",
   },
   {
     id: 13,
-    reposTitle: "ambition-fund-website",
-    reposDescription:
+    title: "ambition-fund-website",
+    description:
       "Website for www.ambitionfund.org, micro-grant program to provide support for underrepresented people who need financial assistance pursuing professional development opportunities in the technology...",
   },
 ];
@@ -292,9 +293,9 @@ repo.addEventListener("click", (e) => {
 });
 
 const startApp = () => {
-  pinnedRepoRender(pinnedRepos);
-  cardsOnDom(projects);
-  packagesCardsOnDom(packages);
+  pinnedRepoRender();
+  cardsOnDom();
+  packagesCardsOnDom();
 };
 
 startApp();
