@@ -1,7 +1,40 @@
+body {
+  background-color: black;
+  color: white;
+}
+
 .nav {
   display: flex;
 }
 
 .footer {
   display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  background-color: black;
+  color: white;
+}
+
+img {
+  size: auto;
+}
+
+button {
+  color: white;
+  background-color: rgb(32, 36, 36);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  border: 2px solid grey;
+}
+
+.sidebar {
+  display: flex;
+  background-color: black;
+  color: white;
+  width: 435px;
 }
